@@ -3,6 +3,7 @@ app = Flask(__name__)
 import annealing_decryption
 import re
 import string
+import json
 
 key = string.ascii_uppercase
 ciphertype = "substitution"
@@ -11,8 +12,16 @@ ciphertype = "substitution"
 def my_form():
     return render_template('index.html')
 
-@app.route('/', methods=['POST'])
+@app.route('/', methods=['GET', 'POST'])
 def my_form_post():
+        selected = []
+        if request.form.get('substition'):
+            selected.append("substition")
+        if request.form.get('vigenere'):
+            selected.append("vigenere")
+        if request.form.get('columntrans'):
+            selected.append('columntrans')
+        print(json.dumps(selected))
 	text = request.form['text']
 	userinput = text.upper()
 	regex = re.compile('[^A-Z]')
