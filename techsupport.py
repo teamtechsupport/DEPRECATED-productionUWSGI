@@ -15,7 +15,6 @@ def my_form():
 regex = re.compile('[^A-Z]')
 @app.route('/', methods=['GET', 'POST'])
 def my_form_post():
-<<<<<<< HEAD
     text = request.form['text']
     userinput = text.upper()
     selected = []
