@@ -18,8 +18,6 @@ def my_form_post():
 <<<<<<< HEAD
     text = request.form['text']
     userinput = text.upper()
-=======
->>>>>>> 42f3e6171813e7efdd84eb72ab3410c2b456c7ae
     selected = []
     substitionresult = ""
     columntransresult= ""
@@ -43,16 +41,12 @@ def my_form_post():
             for x in range(2, 21):
                 columntransresult = transpos(regex.sub('', userinput), x)
     print(json.dumps(selected))
-<<<<<<< HEAD
     return render_template("result.html", substitionresult = substitionresult, columntransresult = columntransresult)
-=======
     text = request.form['text']
     userinput = text.upper()
     regex = re.compile('[^A-Z]')
     print(regex.sub('', userinput), "HE")
     decoded = annealing_decryption.anneal(regex.sub('', userinput), key, ciphertype, "swap", "")
     return render_template("result.html", data = decoded)
->>>>>>> 42f3e6171813e7efdd84eb72ab3410c2b456c7ae
-
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8080)	
