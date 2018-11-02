@@ -41,11 +41,6 @@ def my_form_post():
                 columntransresult = transpos(regex.sub('', userinput), x)
     print(json.dumps(selected))
     return render_template("result.html", substitionresult = substitionresult, columntransresult = columntransresult)
-    text = request.form['text']
-    userinput = text.upper()
-    regex = re.compile('[^A-Z]')
-    print(regex.sub('', userinput), "HE")
-    decoded = annealing_decryption.anneal(regex.sub('', userinput), key, ciphertype, "swap", "")
-    return render_template("result.html", data = decoded)
+
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8080)	
